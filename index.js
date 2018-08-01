@@ -124,10 +124,6 @@ function ListView () {
         var pswObj = getCurrentPassWord();
         $('.selectPsw').removeClass('active');
         $(e.currentTarget).addClass('active');
-        // stormTodo 待删除
-        console.log('1');
-        // stormTodo 待删除
-        console.log('pswObj : %o', pswObj);
         switch ($(e.currentTarget).index()) {
           case 0:
             $copyBtn.attr('data-clipboard-text', pswObj.short);
