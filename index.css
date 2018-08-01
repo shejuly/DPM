@@ -151,8 +151,30 @@ section .info1{
     align-items: center;
     flex-flow: column nowrap;
     display: none;
+    border: 1px solid transparent;
 }
 section .info1 .selectPsw.active{
+    border: 1px dashed darkblue;
+}
+section .info1 .realPassWord{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+section .info1 .realPassWord .selectPsw{
+    min-width: 100px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #aaa;
+}
+section .info1 .realPassWord .selectPsw.active{
+    border: 1px dashed darkblue;
+}
+section .info1 .realPassWord .selectPsw:hover{
     border: 1px dashed darkblue;
 }
 section .info2{
@@ -241,13 +263,13 @@ footer.mainFooter{
 .page2 section .listPlace {
     flex: 10;
 }
-#copyBtn {
+#copyBtn, #showPswBtn {
     background: #4998ca;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    line-height: 40px;
+    line-height: 30px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;

@@ -101,6 +101,7 @@ function ListView () {
           setTimeout(function () {
             $info1.css('transform', 'scale(1)');
           }, 200);
+          $('.selectPsw').removeClass('active').eq(0).addClass('active');
         } else {
           $copyBtn.attr('data-clipboard-text', '');
           $info1.hide();
@@ -120,13 +121,37 @@ function ListView () {
       });
       // 点击某种密码，切换选中状态
       $('.selectPsw').on('click', function (e) {
+        var pswObj = getCurrentPassWord();
         $('.selectPsw').removeClass('active');
         $(e.currentTarget).addClass('active');
+        // stormTodo 待删除
+        console.log('1');
+        // stormTodo 待删除
+        console.log('pswObj : %o', pswObj);
+        switch ($(e.currentTarget).index()) {
+          case 0:
+            $copyBtn.attr('data-clipboard-text', pswObj.short);
+            break;
+          case 1:
+            $copyBtn.attr('data-clipboard-text', pswObj.long);
+            break;
+          case 2:
+            $copyBtn.attr('data-clipboard-text', pswObj.soLong);
+            break;
+          case 3:
+            $copyBtn.attr('data-clipboard-text', pswObj.shortNum);
+            break;
+          default:
+            break;
+        }
       });
       // 点击密码***，显示为真密码
-      $('.pswText').on('click', function () {
+      $('#showPswBtn').on('click', function () {
         var pswObj = getCurrentPassWord();
-        $('.pswText').text()
+        $('.pswText_short').text(pswObj.short);
+        $('.pswText_long').text(pswObj.long);
+        $('.pswText_tooLong').text(pswObj.soLong);
+        $('.pswText_num').text(pswObj.shortNum);
       })
     },
     setListEvent: function () {
